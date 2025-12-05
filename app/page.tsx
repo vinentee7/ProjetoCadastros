@@ -1,20 +1,14 @@
 'use client';
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { DataTable } from "./data-table";
+import { columns, Payment } from "./columns";
 
-type CharactersProps = {
-  id: string;
-  nome: string;
-  cpf: string;
-  telefone: string;
-  endereco: string;
-};
 
 export default function Home() {
 
-  const [data,setData] = useState<CharactersProps[]>([]);
+  const [data,setData] = useState<Payment[]>([]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -41,12 +35,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <main>
-        <header>
-          <h1>Cadastros</h1>
-        </header>
-      </main>
+    <div className="container mx-auto py-10">
+      <DataTable columns={columns} data={data} />
     </div>
   );
 }
