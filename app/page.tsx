@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { DataTable } from "./data-table";
-import { columns, Payment } from "./columns";
+import { columns, Usuarios } from "./columns";
 
 
 export default function Home() {
 
-  const [data,setData] = useState<Payment[]>([]);
+  const [data,setData] = useState<Usuarios[]>([]);
 
   useEffect(() => {
     const controller = new AbortController();
